@@ -2,10 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head"/>
 <body>
+<h1>
+    Cheese Categories
+</h1>
+
+<nav th:replace="fragments :: navigation"/>
 
 <ul>
-    <li th:each="category : ${categories}" th:text="${category.name}"/>
+    <li th:each="category : ${categories}">
+        <a th:href="/cheese/category/${category.id}" th:text="${category.name}" />
+    </li>
 </ul>
+
+<nav>
+    <a href="/category/add">Add</a> |
+    <a href="/category/remove">Remove</a>
+</nav>
 
 </body>
 </html>
